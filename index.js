@@ -1,9 +1,13 @@
-const express = require("express");
+import express from "express";
+import productRoutes from "./routes/productRoutes.js";
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/products', require('./routes/productRoutes'))
+app.use('/products', productRoutes);
 
-app.listen(3000, () => console.log("Server is running... port: 3000"));
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running... port: ${PORT}`);
+});
